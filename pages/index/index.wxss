@@ -1,0 +1,38 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.usermotto {
+  margin:10px;
+  color: #333333;
+}
+
+.baseinfo {
+  font-size: 16px;
+  margin:20px;
+}
+
+.device {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgb(235,235,235);
+}
+
+.bleid{
+  display: block;
+  color: grey;
+  font-size: 14px;
+  margin-left:20px;
+}
+
+.blename{
+  display: block;
+  font-size: 16px;
+  margin-left:20px;
+}
+
+.base-button{
+  margin: 15px;
+}

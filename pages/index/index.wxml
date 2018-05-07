@@ -1,0 +1,37 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+
+  <!--未连接状态-->
+  <scroll-view scroll-y wx:if="{{!isConnected}}">
+  <button class="base-button" bindtap="scan">{{scaning? '正在搜索中':'搜索蓝牙'}}</button>
+    <text class="baseinfo">当前可连接的设备</text>
+      <view 
+      wx:for="{{devices}}" 
+      wx:key="index"
+      class="device"
+      >
+        <text class="blename">{{item.name}}</text>
+        <text class="bleid"
+        bindtap="connect"
+        data-id="{{item.deviceId}}"
+        data-name="{{item.name}}"
+        >{{item.deviceId}}</text>
+    </view>
+  </scroll-view>
+<!--已连接状态-->
+  <view wx:if="{{isConnected}}">
+    <button bindtap="disconnect" data-id="{{deviceId}}">断开连接</button>
+    <text class="baseinfo">当前已连接的设备信息</text>
+    <text class="blename">{{deviceName}}</text>
+    <text class="bleid">{{deviceId}}</text>
+    <text class="blename">serviceId:</text>
+    <text class="blename">{{serviceId}}</text>
+    <text class="blename">characteristicId:</text>
+    <text class="blename">{{characteristicId}}</text>
+    <button bindtap="notify">{{isMonitoring? '关闭监听':'开启监听'}}</button>
+    <button bindtap="write">写入数据</button>
+  </view>
+</view>
