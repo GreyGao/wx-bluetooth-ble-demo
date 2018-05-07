@@ -22,4 +22,6 @@
 4. 目前只针对BLE设备连接。
 
 效果图如下：
+![screenshot2](https://i.loli.net/2018/05/07/5af03da2318ca.png)
+![screenshot1](https://i.loli.net/2018/05/07/5af03da2310c7.png)
 
