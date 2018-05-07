@@ -5,7 +5,6 @@ const app = getApp()
 Page({
   data: {
     motto: '蓝牙模块测试',
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
     devices:[],
     scaning: false,
     isConnected: false,   // 是否正在连接
@@ -36,7 +35,7 @@ Page({
     wx.openBluetoothAdapter({
       success: (res) =>  {
         console.log("初始化蓝牙适配器");
-        console.log(res);
+        // console.log(res);
       },
       fail: (err) => {
         console.log(err);
@@ -90,7 +89,7 @@ Page({
     let that = this
     let deviceId = e.currentTarget.dataset.id
     let deviceName = e.currentTarget.dataset.name
-    console.log(deviceId)
+    console.log('deviceId',deviceId)
     wx.createBLEConnection({
       deviceId: deviceId,
       success:(res) => {
@@ -106,7 +105,7 @@ Page({
         wx.getBLEDeviceServices({
           deviceId: deviceId,
           success: (res) => {
-            console.log('Service信息',res)
+            // console.log('Service信息',res)
             const serviceId = res.services[0].uuid;
             console.log('serviceId', serviceId)
             that.setData({
@@ -117,7 +116,7 @@ Page({
               deviceId: deviceId,
               serviceId: serviceId,
               success: (res) => {
-                console.log('Characteristic信息', res)
+                // console.log('Characteristic信息', res)
                 const characteristicId = res.characteristics[0].uuid
                 console.log('characteristicId', characteristicId)
                 that.setData({
@@ -148,7 +147,7 @@ Page({
       deviceId: deviceId,
       success: (res) => {
         console.log('设备已断开连接')
-        console.log(res)
+        // console.log(res)
         that.setData({
           isConnected: false,
         })
@@ -162,7 +161,7 @@ Page({
     // 更改通知监听
     const that = this
     const { deviceId, serviceId, characteristicId, isMonitoring} = this.data
-    console.log(this.data)
+    // console.log(this.data)
     wx.notifyBLECharacteristicValueChange({
       deviceId: deviceId,
       serviceId: serviceId,
